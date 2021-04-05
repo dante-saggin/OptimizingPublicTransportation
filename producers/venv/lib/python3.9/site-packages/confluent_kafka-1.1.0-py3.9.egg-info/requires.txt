@@ -1,0 +1,21 @@
+
+[:python_version < "3.2"]
+futures
+requests
+
+[:python_version < "3.4"]
+enum34
+
+[avro]
+fastavro
+requests
+
+[avro:python_version < "3.0"]
+avro
+
+[avro:python_version > "3.0"]
+avro-python3
+
+[dev]
+pytest==4.6.4
+flake8
