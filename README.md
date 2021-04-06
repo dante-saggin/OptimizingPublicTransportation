@@ -196,9 +196,7 @@ There are two pieces to the simulation, the `producer` and `consumer`. As you de
 
 However, when you are ready to verify the end-to-end system prior to submission, it is critical that you open a terminal window for each piece and run them at the same time. **If you do not run both the producer and consumer at the same time you will not be able to successfully complete the project**.
 
-`export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=true
-export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=true 
-pip3 install google-cloud-pubsub==2.1.0`
+
 #### To run the `producer`:
 
 1. `cd producers`
@@ -206,6 +204,11 @@ pip3 install google-cloud-pubsub==2.1.0`
 3. `. venv/bin/activate`
 4. `pip3 install -r requirements.txt`
 5. `python simulation.py`
+
+##### To see if you are being able to produce messages
+6. `kafka-console-consumer --bootstrap-server localhost:9092 --topic org.chicago.station.turnstile.v1`
+7. `kafka-console-consumer --bootstrap-server localhost:9092 --topic org.chicago.station.arrivals.v1`
+8. `kafka-console-consumer --bootstrap-server localhost:9092 --topic org.chicago.weather.v1`
 
 Once the simulation is running, you may hit `Ctrl+C` at any time to exit.
 
