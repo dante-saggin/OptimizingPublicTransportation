@@ -234,3 +234,6 @@ Once the simulation is running, you may hit `Ctrl+C` at any time to exit.
 5. `python server.py`
 
 Once the server is running, you may hit `Ctrl+C` at any time to exit.
+
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic org.chicago.station.turnstile.v1
