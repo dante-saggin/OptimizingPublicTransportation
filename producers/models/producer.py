@@ -75,8 +75,8 @@ class Producer:
                         config={
                             "cleanup.policy": "delete",
                             "compression.type": "lz4",
-                            "delete.retention.ms": "100",
-                            "file.delete.delay.ms": "100",
+                            "delete.retention.ms": "100000",
+                            "file.delete.delay.ms": "100000",
                         },
                     )
                 ]
@@ -84,7 +84,7 @@ class Producer:
         for topic, future in futures.items():
             try:
                 future.result()
-                print("topic created")
+                print(f"topic created {topic}")
             except Exception as e:
                 print(f"failed to create topic {topic}: {e}")
 
