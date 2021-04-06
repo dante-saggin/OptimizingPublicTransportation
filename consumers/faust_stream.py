@@ -31,13 +31,15 @@ class TransformedStation(faust.Record):
 
 # DONE: Define a Faust Stream that ingests data from the Kafka Connect stations topic and
 #   places it into a new topic with only the necessary information.
+input_topic_name = "org.chicago.cta.stations"
+output_topic_name = "org.chicago.cta.stations.table.v1"
 app = faust.App("stations-stream", broker="kafka://localhost:9092", store="memory://")
-topic = app.topic("org.chicago.cta.stations", value_type=Station)
+topic = app.topic(input_topic_name, value_type=Station)
 # DONE: Define the output Kafka Topic
-out_topic = app.topic("org.chicago.cta.stations.table.v1", partitions=1)
+out_topic = app.topic(output_topic_name, partitions=1)
 # DONE: Define a Faust Table
 table = app.Table(
-   "org.chicago.cta.stations.table.v1",
+   output_topic_name,
    default=TransformedStation,
    partitions=1,
    changelog_topic=out_topic,
