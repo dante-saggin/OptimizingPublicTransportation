@@ -41,8 +41,8 @@ class Turnstile(Producer):
             "org.chicago.cta.turnstile.v1", # DONE: Come up with a better topic name
             key_schema=Turnstile.key_schema,
             value_schema=Turnstile.value_schema, #DONE: Uncomment once schema is defined
-            num_partitions=2,
-            num_replicas=2,
+            num_partitions=1,
+            num_replicas=1,
         )
         self.station = station
         self.turnstile_hardware = TurnstileHardware(station)
