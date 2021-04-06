@@ -37,7 +37,7 @@ class Station(Producer):
         # replicas
         #
         #
-        topic_name = "chicago.station.arrivals.v1" # DONE: Come up with a better topic name
+        topic_name = "org.chicago.cta.station.arrivals.v1" # DONE: Come up with a better topic name
         super().__init__(
             topic_name,
             key_schema=Station.key_schema,
