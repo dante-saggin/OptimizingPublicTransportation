@@ -38,7 +38,7 @@ class Turnstile(Producer):
         #
         #
         super().__init__(
-            "org.chicago.cta.station.turnstile.v1", # DONE: Come up with a better topic name
+            "org.chicago.cta.turnstile.v1", # DONE: Come up with a better topic name
             key_schema=Turnstile.key_schema,
             value_schema=Turnstile.value_schema, #DONE: Uncomment once schema is defined
             num_partitions=2,
